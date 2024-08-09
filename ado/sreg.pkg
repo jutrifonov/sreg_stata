@@ -1,3 +1,1 @@
-*! version 1.0.0 9Aug2023
-sreg.ado
-sreg_rgen.ado
+sreg.pkg
