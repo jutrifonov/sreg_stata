@@ -1,3 +1,2 @@
-ado/sreg_rgen.ado
-ado/sreg.ado
-ado/sreg_script.py
+*Sreg Package
+sreg.pkg    "Sreg: Stratified Randomized Experiments"
