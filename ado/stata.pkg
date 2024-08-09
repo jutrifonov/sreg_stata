@@ -1,2 +1,2 @@
-d sreg.ado
-d sreg_rgen.ado
+d ado/sreg.ado
+d ado/sreg_rgen.ado
