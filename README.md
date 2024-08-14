@@ -6,6 +6,8 @@ The `sreg` package offers a toolkit for estimating average treatment effects (AT
 
 **Dependencies:** `numpy`, `pandas`, `scipy`
 
+⚠️ **WARNING:** The `sreg Stata® Edition` relies on a `Python™ Edition`. You must have Python installed along with the `sreg` package to use the `Stata` version. Please see installation instructions below.
+
 ## Authors
 - Juri Trifonov jutrifonov@uchicago.edu
 
