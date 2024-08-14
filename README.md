@@ -23,31 +23,30 @@ The `sreg` package offers a toolkit for estimating average treatment effects (AT
 -  Expressions for the multiple treatment case (with and without clusters): [Download PDF](https://github.com/jutrifonov/sreg.dev/blob/main/multiple.pdf)
 
 ## Installation
-The official released version can be installed from `PyPI`.
+1. Make sure that you have a Python enviroment installed on your computer. If not, you can download it from https://www.python.org/downloads/. Then open a terminal and install the python version of the `sreg` package by running:
 ```
 pip install sreg
 ```
-
-The latest development version can be installed from `GitHub`. 
+2. The latest development version for Stata can be installed from `GitHub`:
 ```
-pip install git+https://github.com/jutrifonov/sreg.py
+github install jutrifonov/sreg_stata
 ```
 
-## The function `sreg()`
+## The command `sreg()`
 Estimates the ATE(s) and the corresponding standard error(s) for a (collection of) treatment(s) relative to a control.
 
 ### Syntax
-```python
-sreg(Y, S = None, D = None, G_id = None, Ng = None, X = None, HC1 = True)
+```
+sreg, y() s() d() x() gid() ng() hc1(true)
 ```
 ### Arguments
-- **`Y (float)` -** a `numpy.array` of the observed outcomes;
-- **`S (int)` -** a `numpy.array` of strata indicators $\\{0, 1, 2, \ldots\\}$; if `None` then the estimation is performed assuming no stratification;
-- **`D (int)` -** a `numpy.array` of treatments indexed by $\\{0, 1, 2, \ldots\\}$, where `D = 0` denotes the control;
-- **`G_id (int)` -** a `numpy.array` of cluster indicators; if `None` then estimation is performed assuming treatment is assigned at the individual level;
-- **`Ng (int)` -** a `numpy.array` of cluster sizes; if `None` then `Ng` is assumed to be equal to the number of available observations in every cluster;
-- **`X (DataFrame)` -** a `pandas.DataFrame` with columns representing the covariate values for every observation; if `None` then the estimator without linear adjustments is applied [^*];
-- **`HC1 (bool)` -** a `True/False` logical argument indicating whether the small sample correction should be applied to the variance estimator.
+- **`y` -** a variable representing the observed outcomes;
+- **`s` -** a variable representing strata indicators $\\{0, 1, 2, \ldots\\}$; if `None` then the estimation is performed assuming no stratification;
+- **`d` -** a variable representing treatments indexed by $\\{0, 1, 2, \ldots\\}$, where `d = 0` denotes the control;
+- **`gid` -** a variable representing cluster indicators; if `None` then estimation is performed assuming treatment is assigned at the individual level;
+- **`ng` -** a variable representing cluster sizes; if `None` then `ng` is assumed to be equal to the number of available observations in every cluster;
+- **`x` -** a (collection of) covariate(s) ; if `None` then the estimator without linear adjustments is applied [^*];
+- **`hc1` -** a `true/false` logical argument indicating whether the small sample correction should be applied to the variance estimator.
 [^*]: *Note: sreg cannot use individual-level covariates for covariate adjustment in cluster-randomized experiments. Any individual-level covariates will be aggregated to their cluster-level averages.*
 
 ### Data Structure
