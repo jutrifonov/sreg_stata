@@ -29,6 +29,9 @@ pip install sreg
 ```
 2. The latest development version for Stata can be installed from `GitHub`:
 ```
+net install github, from("https://haghish.github.io/github/")
+```
+```
 github install jutrifonov/sreg_stata
 ```
 
@@ -41,11 +44,11 @@ sreg, y() s() d() x() gid() ng() hc1(true)
 ```
 ### Arguments
 - **`y` -** a variable representing the observed outcomes;
-- **`s` -** a variable representing strata indicators $\\{0, 1, 2, \ldots\\}$; if `None` then the estimation is performed assuming no stratification;
+- **`s` -** a variable representing strata indicators $\\{0, 1, 2, \ldots\\}$; if not provided, then the estimation is performed assuming no stratification;
 - **`d` -** a variable representing treatments indexed by $\\{0, 1, 2, \ldots\\}$, where `d = 0` denotes the control;
-- **`gid` -** a variable representing cluster indicators; if `None` then estimation is performed assuming treatment is assigned at the individual level;
-- **`ng` -** a variable representing cluster sizes; if `None` then `ng` is assumed to be equal to the number of available observations in every cluster;
-- **`x` -** a (collection of) covariate(s) ; if `None` then the estimator without linear adjustments is applied [^*];
+- **`gid` -** a variable representing cluster indicators; if not provided, then estimation is performed assuming treatment is assigned at the individual level;
+- **`ng` -** a variable representing cluster sizes; if not provided, then `ng` is assumed to be equal to the number of available observations in every cluster;
+- **`x` -** a (collection of) covariate(s) ; if not provided, then the estimator without linear adjustments is applied [^*];
 - **`hc1` -** a `true/false` logical argument indicating whether the small sample correction should be applied to the variance estimator.
 [^*]: *Note: sreg cannot use individual-level covariates for covariate adjustment in cluster-randomized experiments. Any individual-level covariates will be aggregated to their cluster-level averages.*
 
