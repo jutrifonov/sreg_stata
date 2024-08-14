@@ -1,7 +1,6 @@
-# sreg_script.py
 import pandas as pd
 import numpy as np
-from sreg import sreg, sreg_rgen  # Ensure these imports work in your Python environment
+from sreg import sreg, sreg_rgen
 
 from sreg import sreg_rgen
 

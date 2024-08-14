@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from sreg import sreg # Ensure these imports work in your Python environment
+from sreg import sreg
 
 def run_sreg(Y=None, S=None, D=None, G_id=None, Ng=None, X=None, HC1=True):
     if Y is not None:
