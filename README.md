@@ -27,7 +27,7 @@ The `sreg` package offers a toolkit for estimating average treatment effects (AT
 ```
 pip install sreg
 ```
-2. The latest development version for Stata can be installed from `GitHub`:
+2. Then, the latest development version for Stata can be installed from `GitHub`:
 ```
 net install sreg, from("https://raw.githubusercontent.com/jutrifonov/sreg_stata/main/")
 ```
