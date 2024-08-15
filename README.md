@@ -167,12 +167,10 @@ sreg_rgen, n(1000) tau_vec("0.2,0.5") n_strata(10) cluster(true) is_cov(true)
 ```
 ### Arguments
 - **`n` -** The total number of observations in the sample;
-- **`Nmax` -** The maximum size of generated clusters (maximum number of observations in a cluster);
-- **`n_strata (int)` -** An `integer` specifying the number of strata;
-- **`tau_vec (list of float)` -** A `list` of treatment effects of length |A|, where |A| represents the number of treatments;
-- **`gamma_vec (list of float)` -** A `list` of three parameters corresponding to covariates;
-- **`cluster (bool)` -** A `boolean` indicating whether the data generation process (DGP) should use cluster-level treatment assignment (`True`) or individual-level treatment assignment (`False`);
-- **`is.cov (bool)` -** A `boolean` indicating whether the DGP should include covariates (`True`) or not (`False`).
+- **`n_strata` -** The number of strata;
+- **`tau_vec` -** A `list` of treatment effects of length |A|, where |A| represents the number of treatments;
+- **`cluster` -** A `boolean` indicating whether the data generation process (DGP) should use cluster-level treatment assignment (`true`) or individual-level treatment assignment (`false`);
+- **`is.cov` -** A `boolean` indicating whether the DGP should include covariates (`true`) or not (`false`).
 
 ### Return Value
 `pd.DataFrame`: A `DataFrame` with `n` observations containing the generated values of the following variables:
