@@ -32,7 +32,7 @@ pip install sreg
 net install sreg, from("https://raw.githubusercontent.com/jutrifonov/sreg_stata/main/")
 ```
 
-## The command `sreg()`
+## The command `sreg`
 Estimates the ATE(s) and the corresponding standard error(s) for a (collection of) treatment(s) relative to a control.
 
 ### Syntax
@@ -158,18 +158,16 @@ Coefficients:
 Signif. codes:  0 `***` 0.001 `**` 0.01 `*` 0.05 `.` 0.1 ` ` 1
 ```
 
-## The function `sreg_rgen()`
+## The command `sreg_rgen`
 Generates the observed outcomes, treatment assignments, strata indicators, cluster indicators, cluster sizes, and covariates for estimating the treatment effect following the stratified block randomization design under covariate-adaptive randomization (CAR).
 
 ### Syntax
-``` python
-sreg_rgen(n, Nmax = 50, n_strata = 5,
-          tau_vec = [0], gamma_vec = [0.4, 0.2, 1],
-          cluster = True, is_cov = True)
+```
+sreg_rgen, n(1000) tau_vec("0.2,0.5") n_strata(10) cluster(true) is_cov(true)
 ```
 ### Arguments
-- **`n (int)` -** The total number of observations in the sample;
-- **`Nmax (int)` -** The maximum size of generated clusters (maximum number of observations in a cluster);
+- **`n` -** The total number of observations in the sample;
+- **`Nmax` -** The maximum size of generated clusters (maximum number of observations in a cluster);
 - **`n_strata (int)` -** An `integer` specifying the number of strata;
 - **`tau_vec (list of float)` -** A `list` of treatment effects of length |A|, where |A| represents the number of treatments;
 - **`gamma_vec (list of float)` -** A `list` of three parameters corresponding to covariates;
