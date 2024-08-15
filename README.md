@@ -29,10 +29,7 @@ pip install sreg
 ```
 2. The latest development version for Stata can be installed from `GitHub`:
 ```
-net install github, from("https://haghish.github.io/github/")
-```
-```
-github install jutrifonov/sreg_stata
+net install sreg, from("https://raw.githubusercontent.com/jutrifonov/sreg_stata/main/")
 ```
 
 ## The command `sreg()`
