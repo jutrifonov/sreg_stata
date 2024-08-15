@@ -173,7 +173,7 @@ sreg_rgen, n(1000) tau_vec("0.2,0.5") n_strata(10) cluster(true) is_cov(true)
 - **`is_cov` -** A `boolean` indicating whether the DGP should include covariates (`true`) or not (`false`).
 
 ### Return Value
-`pd.DataFrame`: A `DataFrame` with `n` observations containing the generated values of the following variables:
+A sample of `n` observations containing the generated values of the following variables:
 - **`Y` -** Observed outcomes;
 - **`S` -** Strata indicators;
 - **`D` -** Treatment assignments, indexed by $\{0, 1, 2, ...\}$, where `D = 0` denotes the control group;
