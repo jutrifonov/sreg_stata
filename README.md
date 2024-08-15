@@ -37,13 +37,13 @@ Estimates the ATE(s) and the corresponding standard error(s) for a (collection o
 
 ### Syntax
 ```
-sreg, y() s() d() x() gid() ng() hc1(true)
+sreg, y() s() d() x() g_id() ng() hc1(true)
 ```
 ### Arguments
 - **`y` -** a variable representing the observed outcomes;
 - **`s` -** a variable representing strata indicators $\\{0, 1, 2, \ldots\\}$; if not provided, then the estimation is performed assuming no stratification;
 - **`d` -** a variable representing treatments indexed by $\\{0, 1, 2, \ldots\\}$, where `d = 0` denotes the control;
-- **`gid` -** a variable representing cluster indicators; if not provided, then estimation is performed assuming treatment is assigned at the individual level;
+- **`g_id` -** a variable representing cluster indicators; if not provided, then estimation is performed assuming treatment is assigned at the individual level;
 - **`ng` -** a variable representing cluster sizes; if not provided, then `ng` is assumed to be equal to the number of available observations in every cluster;
 - **`x` -** a (collection of) covariate(s) ; if not provided, then the estimator without linear adjustments is applied [^*];
 - **`hc1` -** a `true/false` logical argument indicating whether the small sample correction should be applied to the variance estimator.
