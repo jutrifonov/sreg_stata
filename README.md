@@ -84,49 +84,51 @@ Signif. codes:  0 `***` 0.001 `**` 0.01 `*` 0.05 `.` 0.1 ` ` 1
 ```
 ### Empirical Example
 
-Here, we provide the empirical application example using the data from (Chong et al., 2016), who studied the effect of iron deficiency anemia on school-age children's educational attainment and cognitive ability in Peru. The example replicates the empirical illustration from (Bugni et al., 2019). For replication purposes, the data is included in the package and can be accessed by running `AEJapp()`.
+Here, we provide the empirical application example using the data from (Chong et al., 2016), who studied the effect of iron deficiency anemia on school-age children's educational attainment and cognitive ability in Peru. The example replicates the empirical illustration from (Bugni et al., 2019). For replication purposes, the data is included in the package (please, look for a file `sreg_AEJapp.dta`).
 
-``` python
-from sreg import sreg, sreg_rgen, AEJapp
+We can upload the `sreg_AEJapp` dataset to Stata manually or by running (please, check the path to the file on your machine):
 ```
-We can upload the `AEJapp` dataset to the `Python` session via `AEJapp` function:
-``` python
-data = AEJapp()
+use "`c(sysdir_plus)'/s/sreg_AEJapp.dta", clear
 ```
-It is pretty straightforward to prepare the data to fit the package syntax:
-``` python
-Y = data['gradesq34']
-D = data['treatment']
-S = data['class_level']
-pills = data['pills_taken']
-age = data['age_months']
-data_clean = pd.DataFrame({'Y': Y, 'D': D, 'S': S, 'pills': pills, 'age': age})
+It is pretty straightforward to prepare the data to fit the package syntax.
+```
+// Create the new variable D by recoding the treatment variable:
+gen D = treatment
+replace D = 0 if treatment == 3
+// Generate the new cleaned dataset with the variables Y, D, S, X1, X2:
+gen Y = gradesq34
+gen S = class_level
+gen X1 = pills
+gen X2 = age
+```
+Create the frequency table for `D` and `S`:
+```
+table D S
+-----------------------------------------
+        |                 S              
+        |   1    2    3    4    5   Total
+--------+--------------------------------
+D       |                                
+  0     |  15   19   16   12   10      72
+  1     |  16   19   15   10   10      70
+  2     |  17   20   15   11   10      73
+  Total |  48   58   46   33   30     215
+-----------------------------------------
 
-data_clean['D'] = data_clean['D'].apply(lambda x: 0 if x == 3 else x)
-
-Y = data_clean['Y']
-D = data_clean['D']
-S = data_clean['S']
-pills = data_clean['pills']
-age = data_clean['age']
-X = data_clean[['pills', 'age']]
 ```
-We can take a look at the frequency table of `D` and `S`:
-``` python
-contingency_table = pd.crosstab(data_clean['D'], data_clean['S'])
-print(contingency_table)
-S   1   2   3   4   5
-D                    
-0  15  19  16  12  10
-1  16  19  15  10  10
-2  17  20  15  11  10
+Ensure `D` and `S` are integers:
+```
+gen int D_int = int(D)
+gen int S_int = int(S)
+
+// Drop the original D and S columns and rename the new columns:
+drop D S
+rename D_int D
+rename S_int S
 ```
 Now, it is straightforward to replicate the results from (Bugni et al, 2019) using `sreg`:
-``` python
-result = sreg(Y = Y, S = S, D = D, G_id = None, Ng = None, X = None, HC1 = True)
-print(result) 
 ```
-``` python
+sreg, y("Y") s("S") d("D")
 Saturated Model Estimation Results under CAR
 Observations: 215
 Number of treatments: 2
@@ -139,15 +141,14 @@ Coefficients:
 ---
 Signif. codes:  0 `***` 0.001 `**` 0.01 `*` 0.05 `.` 0.1 ` ` 1
 ```
-Besides that, `sreg` allows adding linear adjustments (covariates) to the estimation procedure: 
-``` python
-result = sreg(Y = Y, S = S, D = D, G_id = None, Ng = None, X = X, HC1 = True)
-print(result)
+Besides that, `sreg` allows adding linear adjustments (covariates) to the estimation procedure:
+```
+sreg, y("Y") s("S") d("D") x("X1, X2") hc1(true)
 Saturated Model Estimation Results under CAR with linear adjustments
 Observations: 215
 Number of treatments: 2
 Number of strata: 5
-Covariates used in linear adjustments: pills, age
+Covariates used in linear adjustments: X1,  X2
 ---
 Coefficients:
      Tau   As.se   T-stat  P-value  CI.left(95%)  CI.right(95%) Significance
@@ -156,6 +157,7 @@ Coefficients:
 ---
 Signif. codes:  0 `***` 0.001 `**` 0.01 `*` 0.05 `.` 0.1 ` ` 1
 ```
+
 ## The function `sreg_rgen()`
 Generates the observed outcomes, treatment assignments, strata indicators, cluster indicators, cluster sizes, and covariates for estimating the treatment effect following the stratified block randomization design under covariate-adaptive randomization (CAR).
 
