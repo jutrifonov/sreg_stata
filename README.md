@@ -170,16 +170,16 @@ sreg_rgen, n(1000) tau_vec("0.2,0.5") n_strata(10) cluster(true) is_cov(true)
 - **`n_strata` -** The number of strata;
 - **`tau_vec` -** A `list` of treatment effects of length |A|, where |A| represents the number of treatments;
 - **`cluster` -** A `boolean` indicating whether the data generation process (DGP) should use cluster-level treatment assignment (`true`) or individual-level treatment assignment (`false`);
-- **`is.cov` -** A `boolean` indicating whether the DGP should include covariates (`true`) or not (`false`).
+- **`is_cov` -** A `boolean` indicating whether the DGP should include covariates (`true`) or not (`false`).
 
 ### Return Value
 `pd.DataFrame`: A `DataFrame` with `n` observations containing the generated values of the following variables:
-- **`Y (pd.Series of float)` -** A numeric Series of length `n` representing the observed outcomes;
-- **`S (pd.Series of int)` -** A numeric Series of length `n` representing the strata indicators;
-- **`D (pd.Series of int)` -** A numeric Series of length `n` representing the treatment assignments, indexed by $\{0, 1, 2, ...\}$, where `D = 0` denotes the control group;
-- **`G_id (pd.Series of int)` -** A numeric Series of length `n` representing the cluster indicators;
-- **`Ng (pd.DataFrame)` -** A numeric Series of length `n` representing the cluster indicators;
-- **`X (pd.DataFrame)` -** A `DataFrame` with columns representing the covariate values for every observation.
+- **`Y` -** Observed outcomes;
+- **`S` -** Strata indicators;
+- **`D` -** Treatment assignments, indexed by $\{0, 1, 2, ...\}$, where `D = 0` denotes the control group;
+- **`G_id` -** Cluster indicators;
+- **`Ng` -** Cluster sizes;
+- **`X` -** Covariate values.
 
 ### Example
 ``` python
