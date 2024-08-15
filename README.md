@@ -104,6 +104,8 @@ gen X2 = age
 Create the frequency table for `D` and `S`:
 ```
 table D S
+```
+```
 -----------------------------------------
         |                 S              
         |   1    2    3    4    5   Total
@@ -129,6 +131,8 @@ rename S_int S
 Now, it is straightforward to replicate the results from (Bugni et al, 2019) using `sreg`:
 ```
 sreg, y("Y") s("S") d("D")
+```
+```
 Saturated Model Estimation Results under CAR
 Observations: 215
 Number of treatments: 2
@@ -144,6 +148,8 @@ Signif. codes:  0 `***` 0.001 `**` 0.01 `*` 0.05 `.` 0.1 ` ` 1
 Besides that, `sreg` allows adding linear adjustments (covariates) to the estimation procedure:
 ```
 sreg, y("Y") s("S") d("D") x("X1, X2") hc1(true)
+```
+```
 Saturated Model Estimation Results under CAR with linear adjustments
 Observations: 215
 Number of treatments: 2
@@ -184,7 +190,8 @@ A sample of `n` observations containing the generated values of the following va
 ### Example
 ```
 sreg_rgen, n(1000) tau_vec("0.2,0.5") n_strata(10) cluster(false) is_cov(true)
-
+```
+```
             Y  S  D        X1        X2
 0    1.166101  2  0  6.747262  1.434879
 1    3.303377  9  0  6.114300  1.735095
