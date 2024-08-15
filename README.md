@@ -22,7 +22,7 @@ The `sreg` package offers a toolkit for estimating average treatment effects (AT
 
 -  Expressions for the multiple treatment case (with and without clusters): [Download PDF](https://github.com/jutrifonov/sreg.dev/blob/main/multiple.pdf)
 
-## Installation
+## ⚠️ Installation ⚠️ 
 1. Make sure that you have a Python enviroment installed on your computer. If not, you can download it from https://www.python.org/downloads/. Then open a terminal and install the python version of the `sreg` package by running:
 ```
 pip install sreg
