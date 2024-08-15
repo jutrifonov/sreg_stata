@@ -70,40 +70,21 @@ Here we provide an example of a data frame that can be used with `sreg`.
 ### Summary
 
 `sreg` prints a *"Stata-style"* table containing the ATE estimates, corresponding standard errors, $t$-statistics, $p$-values, $95$% asymptotic confidence intervals, and significance indicators for different levels $\alpha$. The example of the printed output is provided below.
-```python
-Saturated Model Estimation Results under CAR with clusters
-Observations: 24680
+```stata
+Saturated Model Estimation Results under CAR with clusters and linear adjustments
+Observations: 24910
 Clusters: 1000
 Number of treatments: 2
-Number of strata: 5
+Number of strata: 10
+Covariates used in linear adjustments: X1, X2
 ---
 Coefficients:
-     Tau   As.se   T-stat  P-value  CI.left(95%)  CI.right(95%) Significance
--0.03836 0.09008 -0.42585  0.67021      -0.21491        0.13819             
- 0.80719 0.09096  8.87453  0.00000       0.62892        0.98546          ***
+    Tau   As.se   T-stat  P-value  CI.left(95%)  CI.right(95%) Significance
+0.13026 0.04220  3.08637  0.00203       0.04754        0.21297           **
+0.47389 0.04558 10.39719  0.00000       0.38456        0.56322          ***
 ---
 Signif. codes:  0 `***` 0.001 `**` 0.01 `*` 0.05 `.` 0.1 ` ` 1
 ```
-### Return Value
-
-Returns an object of class `Sreg` that is a dictionary containing the following elements:
-
-- **`tau_hat` -**  a numpy array of shape $(1, |A|)$ containing the ATE estimates, where $|A|$ represents the number of treatments;
-  
-- **`se_rob` -** a numpy array of shape $(1, |A|)$ containing the standard error estimates, where $|A|$ represents the number of treatments;
-  
-- **`t_stat` -** a numpy array of shape $(1, |A|)$ containing the t-statistics, where $|A|$ represents the number of treatments;
-  
-- **`p_value` -** a numpy array of shape $(1, |A|)$ containing the corresponding p-values, where $|A|$ represents the number of treatments;
-  
-- **`CI_left` -** a numpy array of shape $(1, |A|)$ containing the left bounds of the $95$% as. confidence interval;
-  
-- **`CI_right` -** a numpy array of shape $(1, |A|)$ containing the right bounds of the $95$% as. confidence interval;
-  
-- **`data` -** the original data provided, stored as a `pandas DataFrame` with the columns `[Y, S, D, G_id, Ng, X]`;
-  
-- **`lin_adj` -** a `pandas DataFrame` representing the covariates that were used in implementing linear adjustments.
-
 ### Empirical Example
 
 Here, we provide the empirical application example using the data from (Chong et al., 2016), who studied the effect of iron deficiency anemia on school-age children's educational attainment and cognitive ability in Peru. The example replicates the empirical illustration from (Bugni et al., 2019). For replication purposes, the data is included in the package and can be accessed by running `AEJapp()`.
