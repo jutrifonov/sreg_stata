@@ -35,3 +35,5 @@ rename S_int S
 sreg, y("Y") s("S") d("D") hc1(false)
 sreg, y("Y") s("S") d("D") x("X1, X2") hc1(true)
 
+
+matrix list e(tv)

@@ -44,34 +44,23 @@ For additional instructions and examples, please visit the {browse "https://gith
 {title:Saved Results}
 
 {phang}
-{cmd:car_sat} saves the following in {cmd:e()}:{p_end}
+{cmd:sreg} saves the following in {cmd:e()}:{p_end}
 
 {synoptset 15 tabbed}{...}
 {p2col 5 15 19 2: Scalars}{p_end}
 
-{synopt:{cmd:e(df_r)}}degrees of freedom{p_end}
 {synopt:{cmd:e(N)}}sample size{p_end}
 {p2colreset}{...}
 
 {synoptset 15 tabbed}{...}
-{p2col 5 15 19 2: Macros}{p_end}
-{synopt:{cmd:e(cmd)}}{cmd:car_sat}{p_end}
-{synopt:{cmd:e(properties)}}{cmd:b V}{p_end}
-{p2colreset}{...}
-
-{synoptset 15 tabbed}{...}
 {p2col 5 15 19 2: Matrices}{p_end}
-{synopt:{cmd:e(b)}}coefficient vector{p_end}
-{synopt:{cmd:e(V)}}variance-covariance matrix of the estimators{p_end}
-{synopt:{cmd:e(V_H)}}estimator of the heterogeneity term in the asymptotic variance (see Bugni, Canay, and Shaikh (2017), eqns. 11 and 15){p_end}
-{synopt:{cmd:e(V_hc)}}HC-robust estimator of the asymptotic variance{p_end}
-
+{synopt:{cmd:e(tau)}}vector of ATE estimates{p_end}
+{synopt:{cmd:e(se)}}vector of standard errors{p_end}
+{synopt:{cmd:e(t)}}vector of t-statistics{p_end}
+{synopt:{cmd:e(pval)}}vector of p-values{p_end}
+{synopt:{cmd:e(ci)}}matrix of as. confidence intervals{p_end}
 {p2colreset}{...}
 
-{synoptset 15 tabbed}{...}
-{p2col 5 15 19 2: Functions}{p_end}
-{synopt:{cmd:e(sample)}}marks estimation sample{p_end}
-{p2colreset}{...}
 
 
 {title:References}

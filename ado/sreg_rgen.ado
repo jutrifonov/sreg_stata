@@ -7,5 +7,3 @@ program define sreg_rgen
     erase sim_data.dta
 end
 
-
-
