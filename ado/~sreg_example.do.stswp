@@ -1,5 +1,5 @@
 clear all
-s
+
 * 1. Simulated data under the cluster-level treatment assignment.
 sreg_rgen, n(1000) tau_vec("0.2,0.5") n_strata(2) cluster(true) is_cov(true)
 
