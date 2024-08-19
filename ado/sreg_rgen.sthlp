@@ -7,11 +7,9 @@
     
 {title:Syntax}
 {p 8 17 2}
-
 {cmd:sreg_rgen}, {it:n(integer)} {it:tau_vec(string)} {it:n_strata(integer)} {it:cluster(boolean)} {it:is_cov(boolean)}
  
 {title:Description}
-
 {pstd}
 {cmd:sreg_rgen} generates the observed outcomes, treatment assignments, strata indicators, cluster indicators, cluster sizes, and covariates for estimating the treatment effect following the stratified block randomization design under CAR.
 {p_end}
