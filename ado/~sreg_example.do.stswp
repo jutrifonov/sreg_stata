@@ -39,3 +39,37 @@ sreg, y("Y") s("S") d("D") x("X1, X2") hc1(true)
 matrix list e(tau)
 matrix list e(se)
 matrix list e(pval)
+
+
+
+
+sreg, y("Y") s("S") d("D") x("X1, X2") hc1(true)
+sreg, y("outcome") s("strata") d("treatment") x("age,exper") g_id("cluster_id") ng("Ng")
+sreg_rgen, n(1000) tau_vec("0.2,0.5") n_strata(2) cluster(true) is_cov(true)
+sreg, y("Y") s("S") d("D") x("X1,X2") g_id("G_id") ng("Ng") hc1(true)
+
+
+use "`c(sysdir_plus)'/s/sreg_AEJapp.dta", clear
+gen D = treatment
+replace D = 0 if treatment == 3
+
+
+gen Y = gradesq34
+gen S = class_level
+gen X1 = pills
+gen X2 = age
+
+
+table D S
+
+
+gen int D_int = int(D)
+gen int S_int = int(S)
+
+drop D S
+rename D_int D
+rename S_int S
+
+sreg, y("Y") s("S") d("D") hc1(false)
+sreg, y("Y") s("S") d("D") x("X1, X2") hc1(true)
+

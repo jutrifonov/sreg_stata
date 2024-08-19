@@ -7,7 +7,7 @@
     
 {title:Syntax}
 {p 8 17 2}
-{cmd:sreg} {it:y(varname)} {it:d(varname)} [{it:s(varname)}] [{it:x(varlist)}] [{it:g_id(varname)}] [{it:ng(varname)}] [{it:hc1(string)}]
+{cmd:sreg}, {it:y(varname)} {it:d(varname)} [{it:s(varname)}] [{it:x(varlist)}] [{it:g_id(varname)}] [{it:ng(varname)}] [{it:hc1(string)}]
  
 {title:Description}
 {pstd}
