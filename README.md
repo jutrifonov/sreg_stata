@@ -1,4 +1,4 @@
-# Stratified Randomized Experiments (Stata® Edition) <img src="https://github.com/jutrifonov/sreg.dev/blob/main/stata_logo.png" align="right" height="50" /></a><img src="https://github.com/jutrifonov/sreg.dev/blob/main/logo.png" align="right" height="250" /></a>
+# Stratified Randomized Experiments (Stata® Edition) <img src="https://github.com/jutrifonov/sreg.dev/blob/main/logo.png" align="right" height="250" /></a>
 ![version](https://img.shields.io/badge/sreg-v.1.0.0.9000-green?style=flat&logo=github&labelColor=2A2523)
 [![codecov](https://codecov.io/github/jutrifonov/sreg/graph/badge.svg?token=KAUXB0ETCA)](https://app.codecov.io/github/jutrifonov/sreg)
 
